@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <script src="index.js" defer ></script>
+    <title>Calculator</title>
+</head>
+<body>
+    <main>
+        <div class="btn">
+            <img src="./assets/moon.svg" alt="night">
+            <img src="./assets/sun.svg" alt="daytime">
+        </div>
+        <div class="container">
+            <form name="calc" class="calculator">
+                <!-- method1 -->
+                <input type="text" name="show" class="screen" readonly>
+                <span class="num clear" ><i>c</i></span> 
+                <span class="num" ><i>(</i></span>
+                <span class="num" ><i>)</i></span>
+                <span class="num" ><i>/</i></span>
+                <span class="num" ><i>7</i></span>
+                <span class="num" ><i>8</i></span>
+                <span class="num" ><i>9</i></span>
+                <span class="num" ><i>*</i></span>
+                <span class="num" ><i>4</i></span>
+                <span class="num" ><i>5</i></span>
+                <span class="num" ><i>6</i></span>
+                <span class="num" ><i>+</i></span>
+                <span class="num" ><i>1</i></span>
+                <span class="num" ><i>2</i></span>
+                <span class="num" ><i>3</i></span>
+                <span class="num" ><i>-</i></span>
+                <span class="num" ><i>0</i></span>
+                <span class="num" ><i>.</i></span>
+                <span class="num" ><i>%</i></span>
+                <span class="num euqal"><i>=</i></span>
+                <!-- method 2 -->
+                <!-- <span class="num clear" onclick="document.calc.show.value =''"><i>c</i></span> 
+               <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '(': calc.show.value = calc.show.value.split('=')[1] +'(' "><i>(</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= ')': calc.show.value = calc.show.value.split('=')[1] +')' "><i>)</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '/': calc.show.value = calc.show.value.split('=')[1] +'/' "><i>/</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '7': null"><i>7</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '8': null "><i>8</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '9': null"><i>9</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '*': calc.show.value = calc.show.value.split('=')[1] +'*' "><i>*</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '4': null"><i>4</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '5': null"><i>5</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '6': null"><i>6</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '+': calc.show.value = calc.show.value.split('=')[1] +'+'  "><i>+</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '1': null"><i>1</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '2': null"><i>2</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '3': null"><i>3</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '-': calc.show.value = calc.show.value.split('=')[1] +'-' "><i>-</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '0': null "><i>0</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '.': null"><i>.</i></span>
+                <span class="num" onclick="calc.show.value.search('=') === -1 ? calc.show.value+= '%': calc.show.value = calc.show.value.split('=')[1] +'%' "><i>%</i></span>
+                <span class="num euqal" onclick="calc.show.value = calc.show.value + '=' + eval(document.calc.show.value)"><i>=</i></span> -->
+            </form>
+        </div>
+        
+    </main>
+    
+</body>
+</html>

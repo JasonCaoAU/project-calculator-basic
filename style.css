@@ -1,0 +1,225 @@
+:root{
+    --general-background-color: #333;
+    --daytime-background-color:#f8f8f8;
+    --daytime-container-background-color:#fafafa;
+    --daytime-color: #fff;
+    --calculator-width: 300px;
+    --calculator-height:400px;
+    --calculator-screen-color:#a7af7c;
+    --key-size:80px;
+    --btn-size:60px;
+    --transition: 0.25s ease-in;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: consolas, "Courier New", monospace; 
+    /* 这是一个等宽字体 */
+}
+main{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* 1vh等于1%view port */
+    background-color: var(--general-background-color);
+    transition: var(--transition);
+}
+main.daytime{
+    background-color: var(--daytime-background-color);
+}
+.container{
+    position: relative;
+    min-width:var(--calculator-width);
+    min-height: var(--calculator-width);
+    background: var(--general-background-color);
+    padding: 40px 30px 30px;
+    border-radius: 20px;
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+    10px 10px 70px rgba(0,0,0,0.25),
+    inset -5px -5px 15px rgba(0,0,0,0.15),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.15);
+    transition: var(--transition);
+}
+main.daytime .container{
+    background: var(--daytime-container-background-color);
+}
+.calculator{
+    position: relative;
+    display: grid;
+    transition: var(--transition);
+    /* grid-template-columns: repeat(4, auto); */
+}
+.calculator .screen{
+    position: relative;
+    grid-column: span 4;
+    height: 100px;
+    /* margin: auto; */
+    left: 10px;
+    width: calc(100% - 20px); 
+    border: none;
+    outline: none;
+    background-color: var(--calculator-screen-color);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 
+    inset 2px 2px 10px #bebebe,
+    inset -2px -2px 10px #fff;
+    text-align: right;
+    font-size: 2rem; 
+    padding: 10px;  
+   
+}
+
+.calculator span.num{
+    left: 10px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    
+    height: var(--key-size);
+    width: var(--key-size);
+    margin-bottom: calc(var(--key-size) / 10);
+    background: linear-gradient(0deg, #2f2f2f, #3f3f3f);
+    box-shadow: inset 0px -8px 8px rgba(0,0,0,0.25),
+    inset -8px 0px 8px rgba(0, 0 ,0, 0.15),
+    0 0 2px rgba(0, 0, 0, 0.2),
+    10px 20px 25px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    font-weight: 500;
+    user-select: none;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+main.daytime .calculator span.num{
+    background: linear-gradient(180deg, #fafafa, #f4f4f4);
+    box-shadow: inset -8px 0 8px rgba(0, 0, 0, 0.15),
+    inset 0 -8px 8px rgba(0, 0, 0, 0.15),
+    0 0 0 2px rgba(0, 0, 0, 0.05),
+    10px 20px 25px rgba(0,0,0,0.25);
+    
+}
+main.daytime .calculator span.clear,.calculator span.clear{
+    background: #f00;
+}
+main.daytime .calculator span.equal, .calculator span.equal{
+    background: #2196f3
+}
+/* method 1: use ::before to add a div without any content before span and let it be absolute */
+/* .calculator span::before {
+    content: "";
+    position: absolute;
+    top: calc(var(--calculator-width) / 100);
+    left: calc(var(--calculator-height) / 100);
+    right: 14px;
+    bottom:12px;
+    background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+    box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1),
+    10px 5px 10px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    border-left:1px solid #0004;
+    border-bottom:1px solid #0004;
+    border-top:1px solid #0004;
+    
+} */
+/* let the i always in the front, both position is relative or z-index is 100 are usefull for using ::before, just choose one of them*/
+/*.calculator span i{
+    z-index: 100; 
+    position: relative;
+    font-size: 1.5rem;
+    font-style: normal;
+    text-transform: uppercase;
+   
+} */
+
+/* method 2: use ::after to add a div without any content instead of ::after before span  */
+.calculator span::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--calculator-width) / 100);
+    left: calc(var(--calculator-height) / 100);
+    right: 14px;
+    bottom:12px;
+    background: linear-gradient(90deg, #2d2d2d, #4d4d4d);
+    box-shadow: -5px -5px 15px rgba(0, 0, 0, 0.1),
+    10px 5px 10px rgba(0,0,0,0.15);
+    border-radius: 10px;
+    border-left:1px solid #0004;
+    border-bottom:1px solid #0004;
+    border-top:1px solid #0004;
+    transition: var(--transition);
+}
+main.daytime .calculator span::after{
+    background: linear-gradient(90deg, #e6e6e6, #efefef);
+    box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.25),
+    10px 5px 10px rgba(0, 0, 0, 0.15);
+    border-left: 1px solid #fff4;
+    border-top: 1px solid #fff4;
+    border-bottom: 1px solid #fff4;
+}
+.calculator span.clear::after, main.daytime .calculator span.clear::after{
+    background: linear-gradient(90deg, #d20000, #ffffff5c);
+}
+.calculator span.equal::after, main.daytime .calculator span.equal::after{
+    background: linear-gradient(90deg, #1479c9, #ffffff5c);
+}
+/* let the i always in the front, only z-index is usefull for using::after, as the added element by ::after is always higher than i element*/
+.calculator span i{
+    font-size: 1.5rem;
+    font-style: normal;
+    text-transform: uppercase;
+    z-index: 100;
+    color: var(--daytime-color);
+}
+main.daytime .calculator span.num i{
+    color:var( --general-background-color);
+}
+/* bright the color of the span when it is actived */
+.calculator span:active{
+    filter: brightness(1.5);
+}
+main.daytime .calculator span:active{
+    filter: brightness(0.9);
+}
+/* switch button between daytime and night */
+div.btn{
+    position: absolute;
+    top:20px;
+    right: 20px;
+    height: var(--btn-size);
+    width: var(--btn-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--general-background-color);
+    box-shadow:  5px 5px 15px rgba(0,0,0,0.25),
+    5px 5px 30px rgba(0,0,0,0.25),
+    inset -2px -2px 5px rgba(0,0,0,0.25),
+    inset 2px 2px 5px rgba(0,0,0,0.25);
+    border-radius: 10px;
+}
+main.daytime div.btn{
+    background-color: var(--daytime-background-color);
+}
+div.btn img{
+    cursor: pointer;
+    width: 55px;
+    height: 55px;
+}
+
+div.btn img:nth-child(1) {
+    display: none;
+}
+div.btn img:nth-child(2) {
+    display:block ;
+    filter: invert(1);
+}
+
+main.daytime div.btn img:nth-child(1) {
+    display: block;
+}
+main.daytime div.btn img:nth-child(2) {
+    display: none;
+}
